@@ -1,8 +1,13 @@
 FROM php:8.2-apache
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql \
+RUN apt-get update && apt-get install -y \
+    libsqlite3-dev \
+    && docker-php-ext-install pdo pdo_sqlite \
     && a2enmod rewrite
 
 COPY . /var/www/html/
+
+RUN mkdir -p /var/www/html/data && \
+    chmod 777 /var/www/html/data
 
 EXPOSE 80
