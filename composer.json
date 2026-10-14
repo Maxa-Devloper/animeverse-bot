@@ -1,0 +1,7 @@
+{
+  "name": "animeverse/bot",
+  "description": "AnimeVerse Telegram Bot",
+  "require": {
+    "php": ">=8.0"
+  }
+}
